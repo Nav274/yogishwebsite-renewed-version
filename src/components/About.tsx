@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { CheckCircle, GraduationCap, Award, Building2 } from "lucide-react";
 
 const credentials = [
@@ -13,7 +14,12 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <GraduationCap className="w-4 h-4 text-primary" />
               <span className="text-sm text-primary font-medium">
@@ -40,21 +46,34 @@ const About = () => {
 
             {/* Credentials */}
             <div className="space-y-3 mb-8">
-              {credentials.map((credential) => (
-                <div key={credential} className="flex items-center gap-3">
+              {credentials.map((credential, index) => (
+                <motion.div
+                  key={credential}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-center gap-3"
+                >
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                   <span className="text-foreground">{credential}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             <a href="#contact" className="btn-accent inline-flex">
               Meet the Team
             </a>
-          </div>
+          </motion.div>
 
           {/* Visual Element */}
-          <div className="relative">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative"
+          >
             <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-card to-secondary border border-border p-8">
               {/* Decorative elements */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
@@ -97,7 +116,7 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

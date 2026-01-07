@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { ArrowRight, Shield, Award, Users } from "lucide-react";
 
 const Hero = () => {
@@ -18,36 +19,47 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8 animate-fade-up">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
+          >
             <Shield className="w-4 h-4 text-primary" />
             <span className="text-sm text-primary font-medium">
               India's Leading Robotic Orthopaedic Center
             </span>
-          </div>
+          </motion.div>
 
           {/* Main heading */}
-          <h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-6 animate-fade-up"
-            style={{ animationDelay: '0.1s' }}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-6"
           >
             Precision{" "}
             <span className="text-gradient-teal italic">Robotic Surgery</span>{" "}
             for Lasting Mobility
-          </h1>
+          </motion.h1>
 
           {/* Subheading */}
-          <p 
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-up"
-            style={{ animationDelay: '0.2s' }}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
             Experience next-generation joint care with state-of-the-art robotic assistance. 
             From diagnosis to rehabilitation, we restore your movement and quality of life.
-          </p>
+          </motion.p>
 
           {/* CTAs */}
-          <div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-up"
-            style={{ animationDelay: '0.3s' }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
             <a href="#contact" className="btn-accent group">
               Schedule Your Consultation
@@ -59,12 +71,14 @@ const Hero = () => {
             >
               Explore Our Services
             </a>
-          </div>
+          </motion.div>
 
           {/* Stats */}
-          <div 
-            className="grid grid-cols-3 gap-8 max-w-2xl mx-auto animate-fade-up"
-            style={{ animationDelay: '0.4s' }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="grid grid-cols-3 gap-8 max-w-2xl mx-auto"
           >
             <div className="text-center">
               <div className="flex items-center justify-center mb-2">
@@ -87,7 +101,7 @@ const Hero = () => {
               </div>
               <p className="text-sm text-muted-foreground">Success Rate</p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
