@@ -1,24 +1,36 @@
 import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const location = useLocation();
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Why Us", href: "#why-us" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About Doctor", href: "/about-doctor" },
+    { 
+      name: "Services", 
+      href: "#",
+      dropdown: [
+        { name: "Robotic Knee Replacement", href: "/services/robotic-knee-replacement" },
+        { name: "Robotic Hip Replacement", href: "/services/robotic-hip-replacement" },
+        { name: "Sports Injury Care", href: "/services/sports-injury" },
+      ]
+    },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/contact" },
   ];
+
+  const isActive = (href: string) => location.pathname === href;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
               <span className="text-primary font-serif text-xl font-bold">O</span>
             </div>
@@ -30,18 +42,53 @@ const Header = () => {
                 Advanced Joint Care
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
-              >
-                {link.name}
-              </a>
+              <div key={link.name} className="relative">
+                {link.dropdown ? (
+                  <div 
+                    className="relative"
+                    onMouseEnter={() => setIsServicesOpen(true)}
+                    onMouseLeave={() => setIsServicesOpen(false)}
+                  >
+                    <button className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium py-2">
+                      {link.name}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    {/* Dropdown Menu */}
+                    {isServicesOpen && (
+                      <div className="absolute top-full left-0 pt-2 w-64 z-50">
+                        <div className="bg-card rounded-xl border border-border shadow-xl overflow-hidden">
+                          {link.dropdown.map((item) => (
+                            <Link
+                              key={item.name}
+                              to={item.href}
+                              className={`block px-4 py-3 text-sm transition-colors hover:bg-primary/10 ${
+                                isActive(item.href) ? 'text-primary bg-primary/5' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    to={link.href}
+                    className={`text-sm font-medium transition-colors duration-200 ${
+                      isActive(link.href) ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                )}
+              </div>
             ))}
           </nav>
 
@@ -54,9 +101,9 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               <span className="text-sm">+91 94803 85533</span>
             </a>
-            <a href="#contact" className="btn-accent">
-              Book Consultation
-            </a>
+            <Link to="/book-appointment" className="btn-accent">
+              Book Appointment
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -71,16 +118,47 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden py-4 border-t border-border animate-fade-in">
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
-                </a>
+                <div key={link.name}>
+                  {link.dropdown ? (
+                    <div>
+                      <button
+                        onClick={() => setIsServicesOpen(!isServicesOpen)}
+                        className="flex items-center justify-between w-full text-muted-foreground hover:text-foreground transition-colors py-2"
+                      >
+                        {link.name}
+                        <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+                      </button>
+                      {isServicesOpen && (
+                        <div className="pl-4 space-y-1">
+                          {link.dropdown.map((item) => (
+                            <Link
+                              key={item.name}
+                              to={item.href}
+                              className={`block py-2 text-sm ${
+                                isActive(item.href) ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className={`block py-2 transition-colors ${
+                        isActive(link.href) ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  )}
+                </div>
               ))}
               <a
                 href="tel:+919480385533"
@@ -89,9 +167,13 @@ const Header = () => {
                 <Phone className="w-4 h-4" />
                 <span>+91 94803 85533</span>
               </a>
-              <a href="#contact" className="btn-accent text-center mt-2">
-                Book Consultation
-              </a>
+              <Link 
+                to="/book-appointment" 
+                className="btn-accent text-center mt-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Book Appointment
+              </Link>
             </nav>
           </div>
         )}
