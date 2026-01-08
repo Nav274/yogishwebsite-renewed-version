@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Award, BookOpen, Users, Stethoscope, GraduationCap, Trophy } from "lucide-react";
+import { Award, BookOpen, Users, Stethoscope, GraduationCap, Trophy, Camera } from "lucide-react";
 import doctorImage from "@/assets/doctor-portrait.jpg";
+import { Link } from "react-router-dom";
 
 const achievements = [
   { icon: Trophy, label: "5000+", description: "Successful Surgeries" },
@@ -37,10 +38,10 @@ const MeetTheDoctor = () => {
             <span className="text-sm text-primary font-medium">Your Surgeon</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-serif mb-4">
-            Meet <span className="text-gradient-teal italic">Dr. Rajesh Kumar</span>
+            Meet <span className="text-gradient-teal italic">Dr. Yogish Vijaya Kumar</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            A pioneer in robotic orthopaedic surgery, dedicated to transforming lives through precision medicine
+           Senior Consultant - Orthopaedic & Joint Replacement Surgery
           </p>
         </motion.div>
 
@@ -56,19 +57,35 @@ const MeetTheDoctor = () => {
             <div className="relative">
               {/* Main image container */}
               <div className="relative rounded-2xl overflow-hidden border-2 border-primary/20 shadow-2xl">
-                <img
+                {/* <img
                   src={doctorImage}
                   alt="Dr. Rajesh Kumar - Orthopaedic Surgeon"
                   className="w-full h-auto object-cover"
-                />
+                /> */}
+                <div className="aspect-video rounded-2xl bg-gradient-to-br from-secondary via-card to-muted flex items-center   justify-center w-full h-auto object-cover">
+                  <div className="text-center p-8">
+                    <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                      <Camera className="w-10 h-10 text-primary" />
+                    </div>
+                    <span className="text-sm uppercase tracking-wider text-primary font-medium">
+                      {/* {selectedImageData.category} */}
+                    </span>
+                    <h3 className="text-2xl font-serif font-semibold text-foreground mt-2">
+                      {/* {selectedImageData.title} */}
+                    </h3>
+                    <p className="text-muted-foreground mt-4 max-w-md mx-auto">
+                      {/* {selectedImageData.description} */}
+                    </p>
+                  </div>
+                </div>
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                 
                 {/* Name badge */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-2xl font-serif text-foreground mb-1">Dr. Rajesh Kumar</h3>
-                  <p className="text-primary font-medium">MS, DNB, FRCS</p>
-                  <p className="text-muted-foreground text-sm mt-1">Senior Consultant Orthopaedic Surgeon</p>
+                  <h3 className="text-2xl font-serif text-foreground mb-1">Dr. Yogish Vijaya Kumar</h3>
+                  {/* <p className="text-primary font-medium">MS, DNB, FRCS</p>
+                  <p className="text-muted-foreground text-sm mt-1">Senior Consultant Orthopaedic Surgeon</p> */}
                 </div>
               </div>
 
@@ -85,7 +102,7 @@ const MeetTheDoctor = () => {
               transition={{ delay: 0.3 }}
               className="grid grid-cols-2 gap-4 mt-8"
             >
-              {achievements.map((item, index) => (
+              {/* {achievements.map((item, index) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -98,7 +115,7 @@ const MeetTheDoctor = () => {
                   <div className="text-2xl font-serif font-bold text-foreground">{item.label}</div>
                   <p className="text-xs text-muted-foreground">{item.description}</p>
                 </motion.div>
-              ))}
+              ))} */}
             </motion.div>
           </motion.div>
 
@@ -113,38 +130,33 @@ const MeetTheDoctor = () => {
             {/* Introduction */}
             <div className="prose prose-invert max-w-none">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Dr. Rajesh Kumar is a distinguished orthopaedic surgeon with over 15 years of experience 
-                in joint replacement and robotic-assisted surgery. His passion for precision medicine 
-                and patient-centered care has made him one of the most sought-after specialists in the region.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                After completing his advanced training in Germany and the United States, Dr. Kumar returned 
-                to India with a mission: to bring world-class robotic surgical techniques to patients who 
-                deserve nothing less than the best. His expertise in minimally invasive procedures means 
-                faster recovery, less pain, and better outcomes for every patient.
+               Dr. Yogish Vijaya Kumar is a highly skilled and experienced Senior Consultant for robotic Orthopaedic and Joint Replacement Surgery. With an impressive list of qualifications and a wide range of expertise, he has made significant contributions to orthopaedics. Dr. Yogish is known for his proficiency in geriatric orthopaedics, primary and revision joint replacement, sports injuries of the knee joint, complex and neglected trauma, pelvic and acetabular fractures, cartilage restoration, and arthritis.
+              </p><br/>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Dr. Yogish’s educational background is extensive and noteworthy. He received his MBBS degree from JJMMC Davangere RGUHS Bangalore in 1999. He further pursued his specialisation in Orthopaedics, earning a Master of Surgery (MS) degree from Jagadguru Jayadeva Murugarajendra Medical College (JJMMC) in 2003. Dr. Yogish obtained a prestigious MChOrth degree from the United Kingdom to enhance his expertise and completed the Associate of the Royal College of Surgeons (ARCS) program in England. 
               </p>
             </div>
 
             {/* Philosophy Quote */}
-            <motion.blockquote
+            {/* <motion.blockquote
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
               className="relative p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border-l-4 border-primary"
-            >
-              <p className="text-lg italic text-foreground">
+            > */}
+              {/* <p className="text-lg italic text-foreground">
                 "Every patient is unique, and so should be their treatment. My goal is to restore not just 
                 mobility, but the quality of life that comes with it."
-              </p>
-              <footer className="mt-3 text-sm text-muted-foreground">
+              </p> */}
+              {/* <footer className="mt-3 text-sm text-muted-foreground">
                 — Dr. Rajesh Kumar
-              </footer>
-            </motion.blockquote>
+              </footer> */}
+            {/* </motion.blockquote> */}
 
             {/* Qualifications */}
             <div>
-              <div className="flex items-center gap-3 mb-4">
+              {/* <div className="flex items-center gap-3 mb-4">
                 <div className="icon-container">
                   <GraduationCap className="w-5 h-5" />
                 </div>
@@ -164,11 +176,11 @@ const MeetTheDoctor = () => {
                     <span>{qual}</span>
                   </motion.li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
 
             {/* Specializations */}
-            <div>
+            {/* <div>
               <h4 className="text-xl font-serif text-foreground mb-4">Areas of Expertise</h4>
               <div className="flex flex-wrap gap-2">
                 {[
@@ -193,7 +205,7 @@ const MeetTheDoctor = () => {
                   </motion.span>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* CTA */}
             <motion.div
@@ -206,12 +218,12 @@ const MeetTheDoctor = () => {
               <a href="#contact" className="btn-accent">
                 Book a Consultation
               </a>
-              <a 
-                href="#services" 
+              <Link
+                to="/about-doctor" 
                 className="px-6 py-3 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors font-medium"
               >
-                View Services
-              </a>
+                Know More
+              </Link>
             </motion.div>
           </motion.div>
         </div>

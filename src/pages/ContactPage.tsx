@@ -11,7 +11,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Us",
-    details: ["OrthoRobotics Clinic", "123 Healthcare Avenue", "Bangalore, Karnataka 560001"],
+    details: ["Re-Flex Super Specialty Clinic,", "#301/C, 35th Cross, 9th Main, 4th Block, Jayanagar, Bengaluru – 560011"],
   },
   {
     icon: Phone,
@@ -185,21 +185,78 @@ const ContactPage = () => {
               </div>
 
               {/* Map Placeholder */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
                 className="rounded-2xl overflow-hidden border border-border h-80"
               >
-                <div className="w-full h-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-primary mx-auto mb-3" />
-                    <p className="text-muted-foreground">Interactive Map</p>
-                    <p className="text-sm text-muted-foreground/70">123 Healthcare Avenue, Bangalore</p>
-                  </div>
-                </div>
-              </motion.div>
+                
+              </motion.div> */}
+
             </motion.div>
+          </div>
+
+        <div className="card text-center mt-12">
+          <h1 className="text-2xl font-serif mb-6">Clinic Schedules</h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+            {/* Card 1 */}
+            <div className="card-glass p-6 text-center card-service">
+              <h3 className="text-lg font-semibold mb-2">
+                Manipal Hospital, Kanakapura Road
+              </h3>
+              <p className="text-sm text-muted-foreground">
+               Wednesday & Saturday:
+              </p>
+              <p className="text-sm text-muted-foreground">
+                11:00 AM – 5:00 PM
+              </p>
+              <a href="tel:+91 73530 26633" className="text-sm text-muted-foreground">+91 73530 26633</a>
+            </div>
+
+            {/* Card 2 */}
+            <div className="card-glass p-6 text-center card-service">
+              <h3 className="text-lg font-semibold mb-2">
+                Malathi Manipal Hospital, Jayanagar
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Monday & Friday: 10:30 AM – 4:00 PM
+              </p>
+               <p className="text-sm text-muted-foreground">
+                10:30 AM – 4:00 PM
+              </p>
+              <a href="tel:080 4009 1000" className="text-sm text-muted-foreground">080 4009 1000</a>
+            </div>
+
+            {/* Card 3 */}
+            <div className="card-glass p-6 text-center card-service">
+              <h3 className="text-lg font-semibold mb-2">
+                Re-Flex Super Specialty Clinic, Jayanagar
+              </h3>
+              <p className="text-sm text-muted-foreground">
+               Daily: 5:00 PM – 8:00 PM
+              </p>
+              <a href="tel:+91 94803 75533" className="text-sm text-muted-foreground">+91 94803 75533</a>
+            </div>
+
+          </div>
+        </div>
+
+          <div className="w-full h-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center mt-12 justify-center">
+            {/* <div className="text-center">
+              <MapPin className="w-12 h-12 text-primary mx-auto mb-3" />
+              <p className="text-muted-foreground">Interactive Map</p>
+              <p className="text-sm text-muted-foreground/70">123 Healthcare Avenue, Bangalore</p>
+            </div> */}
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.739716217904!2d77.5809170758868!3d12.924443415908819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae158e83abb207%3A0x88ff31b0d4c22bfd!2sRe-flex%20Super%20Specialty%20Clinic!5e0!3m2!1sen!2sin!4v1765519245073!5m2!1sen!2sin"
+              width="100%"
+              height="400px"
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade">
+            </iframe>
           </div>
         </div>
       </main>

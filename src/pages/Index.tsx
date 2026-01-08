@@ -19,9 +19,9 @@ const Index = () => {
         <MeetTheDoctor />
         <WhyUs />
         <Testimonials />
-        <Gallery />
+        {/* <Gallery />
         <FAQ />
-        <Contact />
+        <Contact /> */}
       </main>
       <Footer />
     </div>

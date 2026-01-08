@@ -8,24 +8,30 @@ import {
   Zap,
   ClipboardCheck,
   Pill,
-  Heart
+  Heart,
+  ArrowRight
 } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
     icon: Bone,
     title: "Robotic Hip Replacement",
-    description: "Robotic-guided hip arthroplasty with meticulous planning for long-lasting alignment and function."
+    description: "Robotic-guided hip arthroplasty with meticulous planning for long-lasting alignment and function.",
+    path:"services/robotic-hip-replacement",
   },
   {
     icon: Activity,
     title: "Robotic Knee Replacement",
-    description: "State-of-the-art robotic knee arthroplasty for improved implant fit and quicker recovery."
+    description: "State-of-the-art robotic knee arthroplasty for improved implant fit and quicker recovery.",
+    path:"services/robotic-knee-replacement"
   },
   {
     icon: RefreshCw,
     title: "Revision Joint Surgery",
-    description: "Comprehensive solutions for failed or painful implants with advanced biomaterials and reconstruction."
+    description: "Comprehensive solutions for failed or painful implants with advanced biomaterials and reconstruction.",
+    path:"services/sports-injury"
   },
   {
     icon: Scissors,
@@ -79,6 +85,9 @@ const itemVariants = {
 };
 
 const Services = () => {
+
+  const [MouseEntered, setMouseEntered] = useState(false);
+
   return (
     <section id="services" className="py-24 relative">
       <div className="container mx-auto px-4">
@@ -117,16 +126,26 @@ const Services = () => {
               key={service.title}
               variants={itemVariants}
               className="card-service group"
+              onMouseEnter={()=>setMouseEntered(!MouseEntered)} onMouseLeave={()=>setMouseEntered(!MouseEntered)}
             >
-              <div className="icon-container mb-6 group-hover:animate-pulse-glow transition-all">
-                <service.icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
+              <Link to={service.path} >
+                <div className="icon-container mb-6 group-hover:animate-pulse-glow transition-all">
+                  <service.icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
+                {/* Link indicator */}
+                {service.path && (
+                  <div className="flex items-center gap-2 mt-4 text-primary font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>Learn more</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                )}
+              </Link>
             </motion.div>
           ))}
         </motion.div>

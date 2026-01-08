@@ -1,42 +1,43 @@
 import { motion } from "framer-motion";
-import { Award, BookOpen, Users, Stethoscope, GraduationCap, Trophy, MapPin, Calendar, Heart } from "lucide-react";
+import { Award, BookOpen, Users, Stethoscope, GraduationCap, Trophy, MapPin, Calendar, Heart, Camera } from "lucide-react";
 import doctorImage from "@/assets/doctor-portrait.jpg";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StatsCounters from "@/components/StatsCounter";
 
 const achievements = [
   { icon: Trophy, value: "5000+", label: "Successful Surgeries" },
-  { icon: Users, value: "15+", label: "Years Experience" },
-  { icon: Award, value: "50+", label: "Awards & Recognition" },
-  { icon: BookOpen, value: "30+", label: "Research Papers" },
+  { icon: Users, value: "25+", label: "Years Experience" },
+  { icon: Award, value: "98%", label: "Patient Satisfaction" },
+  { icon: BookOpen, value: "4.5/5", label: "Average Rating" },
 ];
 
 const qualifications = [
-  { degree: "MBBS", institution: "All India Institute of Medical Sciences (AIIMS), New Delhi", year: "2005" },
-  { degree: "MS (Orthopaedics)", institution: "PGIMER, Chandigarh", year: "2009" },
-  { degree: "DNB (Orthopaedics)", institution: "National Board of Examinations", year: "2010" },
+  { degree: "MBBS", institution: "MBBS — JJMMC, Davangere", year: "2005" },
+  { degree: "MS (Orthopaedics)", institution: "JJMMC, Davangere", year: "2009" },
+  { degree: "MCh Orthopaedics", institution: "University of Dundee, U.K.", year: "2010" },
   { degree: "Fellowship in Robotic Joint Replacement", institution: "University Hospital, Frankfurt, Germany", year: "2012" },
-  { degree: "Advanced Training in Minimally Invasive Surgery", institution: "Johns Hopkins Hospital, USA", year: "2014" },
+  { degree: "MBA (Hospital Administration)", institution: "Johns Hopkins Hospital, USA", year: "2014" },
 ];
 
 const timeline = [
-  { year: "2005-2009", title: "Medical Training", description: "Completed MBBS and MS in Orthopaedics from premier institutions" },
-  { year: "2010-2014", title: "International Fellowship", description: "Advanced training in Germany and USA for robotic surgery techniques" },
-  { year: "2015-2018", title: "Building Expertise", description: "Established robotic surgery program at leading hospital in Bangalore" },
-  { year: "2019-Present", title: "OrthoRobotics", description: "Founded OrthoRobotics to bring world-class joint care to more patients" },
+  { year: "2005-2009", title: "JJMMC Davangere", description: "Completed MBBS and MS (Orthopaedics) with a strong foundation in traum care" },
+  { year: "2010-2014", title: "University of Dundee, U.K.", description: "Earned MCh Orthopaedics and honed advanced joint replacement techniques" },
+  { year: "2015-2018", title: "U.K. Training", description: "Immersive training in robotic-assisted, minimally invasive hip and knee arthroplasty" },
+  { year: "2019-Present", title: "Bengaluru Practice", description: "Established multi-centre practice covering trauma, arthroscopy, and revision arthroplasty" },
+  { year: "Today", title:"", description:"Leads robotic joint programs and complete rehabilitation programs across leading hospitals"
+
+  }
 ];
 
 const specializations = [
-  "Robotic Knee Replacement",
-  "Hip Arthroplasty",
-  "Revision Joint Surgery",
-  "Sports Medicine",
-  "Arthroscopy",
-  "Trauma Surgery",
-  "Minimally Invasive Surgery",
-  "Complex Deformity Correction",
-  "Partial Knee Replacement",
-  "Joint Preservation",
+  "Robotic Orthopedic Surgery",
+  "Geriatric Orthopaedics",
+  "Primary & Revision Joint Replacement",
+  "Sports injuries of knee joint",
+  "Complex & Neglected Trauma",
+  "Pelvic & Acetabular Fractures",
+  "Cartilage Restoration & Arthritis",
 ];
 
 const AboutDoctorPage = () => {
@@ -45,7 +46,7 @@ const AboutDoctorPage = () => {
       <Header />
       <main className="pt-32 pb-24">
         {/* Hero Section */}
-        <section className="container mx-auto px-4 mb-24">
+        <section className="container mx-auto px-8 mb-24">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
@@ -56,15 +57,16 @@ const AboutDoctorPage = () => {
                 <span className="text-sm text-primary font-medium">Your Surgeon</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-serif mb-6">
-                Dr. <span className="text-gradient-teal italic">Rajesh Kumar</span>
+                Dr. <span className="text-gradient-teal italic">Yogesh VijayKumar</span>
               </h1>
               <p className="text-xl text-primary font-medium mb-4">
-                MS, DNB, FRCS | Senior Consultant Orthopaedic Surgeon
+                MS(Ortho), MCh Ortho(UK) |  Robotic Joint Replacement Surgeon
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                Dr. Yogish Vijaya Kumar is a highly skilled and experienced Senior Consultant for robotic Orthopaedic and Joint Replacement Surgery. With an impressive list of qualifications and a wide range of expertise, he has made significant contributions to orthopaedics. Dr. Yogish is known for his proficiency in geriatric orthopaedics, primary and revision joint replacement, sports injuries of the knee joint, complex and neglected trauma, pelvic and acetabular fractures, cartilage restoration, and arthritis. 
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                A pioneer in robotic orthopaedic surgery with over 15 years of experience, 
-                Dr. Rajesh Kumar has dedicated his career to restoring mobility and 
-                transforming lives through precision medicine and compassionate care.
+                 Dr. Yogish’s educational background is extensive and noteworthy. He received his MBBS degree from JJMMC Davangere RGUHS Bangalore in 1999. He further pursued his specialisation in Orthopaedics, earning a Master of Surgery (MS) degree from Jagadguru Jayadeva Murugarajendra Medical College (JJMMC) in 2003. Dr. Yogish obtained a prestigious MChOrth degree from the United Kingdom to enhance his expertise and completed the Associate of the Royal College of Surgeons (ARCS) program in England. 
               </p>
               <div className="flex flex-wrap gap-4">
                 <a href="/book-appointment" className="btn-accent">
@@ -86,11 +88,27 @@ const AboutDoctorPage = () => {
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden border-2 border-primary/20 shadow-2xl">
-                <img
+                {/* <img
                   src={doctorImage}
                   alt="Dr. Rajesh Kumar"
                   className="w-full h-auto object-cover"
-                />
+                /> */}
+                <div className="aspect-video rounded-2xl bg-gradient-to-br from-secondary via-card to-muted flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                      <Camera className="w-10 h-10 text-primary" />
+                    </div>
+                    <span className="text-sm uppercase tracking-wider text-primary font-medium">
+                      {/* {selectedImageData.category} */}
+                    </span>
+                    <h3 className="text-2xl font-serif font-semibold text-foreground mt-2">
+                      {/* {selectedImageData.title} */}
+                    </h3>
+                    <p className="text-muted-foreground mt-4 max-w-md mx-auto">
+                      {/* {selectedImageData.description} */}
+                    </p>
+                  </div>
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
               </div>
               <div className="absolute -top-6 -right-6 w-32 h-32 border-2 border-primary/30 rounded-3xl -z-10" />
@@ -113,8 +131,10 @@ const AboutDoctorPage = () => {
                   className="text-center"
                 >
                   <item.icon className="w-10 h-10 text-primary mx-auto mb-4" />
-                  <div className="text-4xl font-serif font-bold text-foreground mb-2">{item.value}</div>
-                  <p className="text-muted-foreground">{item.label}</p>
+                  
+                  <StatsCounters value={item.value} duration={1600} once />
+
+                  <p className="text-muted-foreground mt-1">{item.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -129,7 +149,7 @@ const AboutDoctorPage = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <div className="text-center mb-12">
+            {/* <div className="text-center mb-12">
               <Heart className="w-12 h-12 text-primary mx-auto mb-4" />
               <h2 className="text-3xl md:text-4xl font-serif italic mb-4">Philosophy & Approach</h2>
             </div>
@@ -142,7 +162,7 @@ const AboutDoctorPage = () => {
               <footer className="mt-6 text-center text-primary font-medium">
                 — Dr. Rajesh Kumar
               </footer>
-            </blockquote>
+            </blockquote> */}
           </motion.div>
         </section>
 

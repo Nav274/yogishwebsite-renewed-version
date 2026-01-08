@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
+import logo from "../../public/logo.png"
 
 const Footer = () => {
   const quickLinks = [
@@ -31,7 +32,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <a href="#home" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+              {/* <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                 <span className="text-primary font-serif text-xl font-bold">O</span>
               </div>
               <div className="flex flex-col">
@@ -41,7 +42,8 @@ const Footer = () => {
                 <span className="text-xs text-muted-foreground tracking-wider uppercase">
                   Advanced Joint Care
                 </span>
-              </div>
+              </div> */}
+              <img src={logo} alt="logo" width="200px"/>
             </a>
             <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
               Pioneering robotic orthopaedic surgery in India, delivering precision, 
@@ -98,10 +100,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Contact Info</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li>123 Healthcare Avenue</li>
-              <li>Bangalore, Karnataka 560001</li>
-              <li>+91 94803 85533</li>
-              <li>info@orthorobotics.in</li>
+              <li><b>Dr. Yogish Vijaya Kumar</b></li>
+              <li>9th Main Road, Inside Re-flex Super Specialty Clinic, 301/C, 35th Cross Rd, 4th Block, Jayanagar, Bengaluru, Karnataka 560011</li>
+              <li><a href="tel:+91 94803 75533">+91 94803 75533</a></li>
+              <li>yogishv@yahoo.com</li>
             </ul>
           </div>
         </div>
@@ -109,7 +111,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} OrthoRobotics. All rights reserved.
+            © {new Date().getFullYear()} KNR. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>

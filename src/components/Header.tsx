@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import logo from "../../public/logo.png"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,7 +32,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+            {/* <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
               <span className="text-primary font-serif text-xl font-bold">O</span>
             </div>
             <div className="flex flex-col">
@@ -41,7 +42,8 @@ const Header = () => {
               <span className="text-xs text-muted-foreground tracking-wider uppercase">
                 Advanced Joint Care
               </span>
-            </div>
+            </div> */}
+            <img src={logo} alt="logo" width="200px"/>
           </Link>
 
           {/* Desktop Navigation */}

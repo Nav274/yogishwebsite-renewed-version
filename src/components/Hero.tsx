@@ -83,7 +83,7 @@ const Hero = () => {
             <div className="text-center">
               <div className="flex items-center justify-center mb-2">
                 <Award className="w-5 h-5 text-primary mr-2" />
-                <span className="text-3xl md:text-4xl font-serif font-bold text-foreground">15+</span>
+                <span className="text-3xl md:text-4xl font-serif font-bold text-foreground">25+</span>
               </div>
               <p className="text-sm text-muted-foreground">Years Experience</p>
             </div>

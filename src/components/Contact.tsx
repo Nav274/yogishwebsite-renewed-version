@@ -161,12 +161,20 @@ const Contact = () => {
             ))}
 
             {/* Map placeholder */}
-            <div className="rounded-xl overflow-hidden border border-border h-48 bg-card flex items-center justify-center">
+            {/* <div className="rounded-xl overflow-hidden border border-border h-48 bg-card flex items-center justify-center">
               <div className="text-center">
                 <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
                 <p className="text-muted-foreground text-sm">Interactive Map</p>
               </div>
-            </div>
+            </div> */}
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.739716217904!2d77.5809170758868!3d12.924443415908819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae158e83abb207%3A0x88ff31b0d4c22bfd!2sRe-flex%20Super%20Specialty%20Clinic!5e0!3m2!1sen!2sin!4v1765519245073!5m2!1sen!2sin"
+                width="100%"
+                height="400px"
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade">
+              </iframe>
           </div>
         </div>
       </div>
